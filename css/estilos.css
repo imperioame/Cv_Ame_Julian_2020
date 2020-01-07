@@ -2,6 +2,14 @@ body{
     padding: 2vh 2vw;
     margin: 0;
     background-color:rgb(240, 240, 240);
+}
+
+.container_filas{
+    display: flex;
+    flex-direction: row;
+}
+
+.container_columnas{
     display: flex;
     flex-direction: column;
 }
@@ -12,7 +20,6 @@ body a, body p, body li{
 
 
 header{
-    display: flex;
     width: 100%;
 }
 
@@ -27,10 +34,6 @@ header ul a{
 
 #foto_perfil{
 
-}
-
-#container_flex{
-    display: flex;
 }
 
 aside{
@@ -60,6 +63,10 @@ background-color: lightgray;
     background-color: lightslategray;
 }
 
+.noventa{
+    width: 90%;
+}
+
 .setenta_y_cinco{
     width: 75%;
 }
@@ -72,11 +79,15 @@ background-color: lightgray;
     width: 25%;
 }
 
-.container_hobbies{
-    display: flex;
+.container_rrss div{
+    display: block;
 }
 
-.container_hobbies div{
+.container_rrss div a{
+    margin-left: 10px;
+}
+
+#container_software{
     text-align: center;
 }
 
