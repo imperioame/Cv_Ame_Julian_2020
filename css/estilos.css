@@ -95,3 +95,20 @@ main{
     margin: 0;
     display: inline-block;
 }
+
+main h3{
+    text-transform: uppercase;
+}
+
+main .border_left h4{
+    margin-bottom: 0;
+}
+
+.border_left{
+    border-left: 2px solid rgb(80, 80, 80);
+    padding-left: 20px;
+}
+
+.titular_separador_main img, .titular_separador_main h3 {
+    display: inline-block;
+}
