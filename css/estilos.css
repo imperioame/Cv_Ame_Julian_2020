@@ -61,7 +61,7 @@ body small {
     font-family: "Source_sans_light", sans-serif;
 }
 
-body h4{
+body h4 {
     color: black;
     font-family: "Source_sans_light", sans-serif;
 
@@ -207,7 +207,13 @@ main .border_left h4 {
     padding-left: 20px;
 }
 
+
 .titular_separador_main img,
 .titular_separador_main h3 {
     display: inline-block;
+}
+
+.titular_separador_main img {
+    max-width: 1em;
+    margin-right: 20px;
 }
