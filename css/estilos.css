@@ -1,3 +1,6 @@
+
+
+
 body{
     padding: 2vh 2vw;
     margin: 0;
@@ -19,21 +22,32 @@ body a, body p, body li{
 }
 
 
+a{
+    text-decoration: none;
+}
+
 header{
     width: 100%;
+
 }
 
 header ul{
     list-style: none;
 }
 
-header ul a{
-    text-decoration: none;
-
+#foto_perfil {
+    width: 20%;
+    margin: 0 5%;
 }
 
-#foto_perfil{
+#foto_perfil img{
+    width: 80%;
+    border: 0.7em solid lightgray;
+    border-radius: 50%;
+}
 
+#info_principal_header {
+    margin: 0;
 }
 
 aside{
@@ -79,16 +93,26 @@ background-color: lightgray;
     width: 25%;
 }
 
-.container_rrss div{
-    display: block;
+.container_rrss a p{
+    word-break: break-all;
 }
 
-.container_rrss div a{
-    margin-left: 10px;
+.container_rrss img{
+    max-width: 30px;
+}
+
+
+
+.container_rrss a div{
+    margin-right: 20px;
 }
 
 #container_software{
     text-align: center;
+}
+
+.fila img{
+    max-width: 30px;
 }
 
 main{
@@ -112,3 +136,4 @@ main .border_left h4{
 .titular_separador_main img, .titular_separador_main h3 {
     display: inline-block;
 }
+
