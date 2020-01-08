@@ -1,38 +1,112 @@
-
-
-
-body{
-    padding: 2vh 2vw;
-    margin: 0;
-    background-color:rgb(240, 240, 240);
+@font-face {
+    font-family: "Oswald_regular";
+    src: url(../fonts/Oswald-Regular.ttf);
+    font-weight: 400;
 }
 
-.container_filas{
+@font-face {
+    font-family: "Oswald_light";
+    src: url(../fonts/Oswald-Light.ttf);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Source_sans_light";
+    src: url(../fonts/SourceSansPro-Light.ttf);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Source_Sans_regular";
+    src: url(../fonts/SourceSansPro-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Source_sans_extra_light";
+    src: url(../fonts/SourceSansPro-ExtraLight.ttf);
+    font-weight: 100;
+}
+
+
+@font-face {
+    font-family: "Source_sans_bold";
+    src: url(../fonts/SourceSansPro-Bold.ttf);
+    font-weight: 700;
+}
+
+
+
+body {
+    padding: 2vh 2vw;
+    margin: 0;
+    background-color: rgb(240, 240, 240);
+}
+
+.container_filas {
     display: flex;
     flex-direction: row;
 }
 
-.container_columnas{
+.container_columnas {
     display: flex;
     flex-direction: column;
 }
 
-body a, body p, body li{
+body a,
+body p,
+body li,
+body small {
     color: gray;
+    font-family: "Source_sans_light", sans-serif;
 }
 
+body h4{
+    color: black;
+    font-family: "Source_sans_light", sans-serif;
 
-a{
+}
+
+strong {
+    color: black;
+    font-family: "Source_sans_bold", sans-serif;
+}
+
+h1 {
+    font-family: "Oswald_regular", sans-serif;
+}
+
+h2,
+h3 {
+    font-family: "Oswald_light", sans-serif;
+}
+
+a {
     text-decoration: none;
 }
 
-header{
+header {
     width: 100%;
-
 }
 
-header ul{
+header h1 {
+    font-family: "Oswald_light", sans-serif;
+    text-transform: uppercase;
+}
+
+header h2 {
+    border-left: 1px solid rgb(80, 80, 80);
+    padding-left: 15px;
+    font-family: "Source_sans_light", sans-serif;
+    color: gray;
+    font-size: 1em;
+}
+
+header ul {
     list-style: none;
+    border-left: 1px solid rgb(80, 80, 80);
+    padding-left: 15px;
+    font-size: 0.9em;
 }
 
 #foto_perfil {
@@ -40,7 +114,7 @@ header ul{
     margin: 0 5%;
 }
 
-#foto_perfil img{
+#foto_perfil img {
     width: 80%;
     border: 0.7em solid lightgray;
     border-radius: 50%;
@@ -50,90 +124,90 @@ header ul{
     margin: 0;
 }
 
-aside{
+aside {
     width: 20%;
     display: inline-block;
     margin: 0;
     padding: 0 5%;
 }
 
-aside section{
+aside section {
     margin-bottom: 50px;
 }
 
 
-aside section h3{
+aside section h3 {
     text-transform: uppercase;
     text-align: center;
 }
 
-.progress_bar_container{
-width: 100%;
-background-color: lightgray;
+.progress_bar_container {
+    width: 100%;
+    background-color: lightgray;
 }
 
-.progress_bar{
+.progress_bar {
     height: 3px;
     background-color: lightslategray;
 }
 
-.noventa{
+.noventa {
     width: 90%;
 }
 
-.setenta_y_cinco{
+.setenta_y_cinco {
     width: 75%;
 }
 
-.cincuenta{
+.cincuenta {
     width: 50%;
 }
 
-.veinticinco{
+.veinticinco {
     width: 25%;
 }
 
-.container_rrss a p{
+.container_rrss a p {
     word-break: break-all;
 }
 
-.container_rrss img{
+.container_rrss img {
     max-width: 30px;
 }
 
 
 
-.container_rrss a div{
+.container_rrss a div {
     margin-right: 20px;
 }
 
-#container_software{
+#container_software {
     text-align: center;
 }
 
-.fila img{
+.fila img {
     max-width: 30px;
 }
 
-main{
+main {
     margin: 0;
     display: inline-block;
 }
 
-main h3{
+main h3 {
     text-transform: uppercase;
 }
 
-main .border_left h4{
+main .border_left h4 {
     margin-bottom: 0;
 }
 
-.border_left{
+.border_left {
     border-left: 2px solid rgb(80, 80, 80);
     padding-left: 20px;
 }
 
-.titular_separador_main img, .titular_separador_main h3 {
+.titular_separador_main img,
+.titular_separador_main h3 {
     display: inline-block;
 }
-
