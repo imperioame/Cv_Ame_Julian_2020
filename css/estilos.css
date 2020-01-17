@@ -170,6 +170,8 @@ header ul {
     width: 80%;
     border: 0.7em solid lightgray;
     border-radius: 50%;
+    border-left: 0.7em solid darkgray;
+    border-top: 0.7em solid darkgray;
 }
 
 #info_principal_header {
