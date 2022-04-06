@@ -461,6 +461,11 @@ main .border_left h4 {
     width: 5%;
 }
 
+.links a{
+    font-style: italic;
+    color: rgb(22, 37, 58);
+}
+
 /*
 #boton_cerrar a{
 margin: 0;
