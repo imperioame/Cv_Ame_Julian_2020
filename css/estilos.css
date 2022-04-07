@@ -109,6 +109,11 @@ body h4 {
 
 }
 
+footer{
+    width: 100%;
+    height: 10vh;
+}
+
 strong {
     color: black;
     font-family: "Source_sans_bold", sans-serif;
@@ -173,6 +178,7 @@ header ul {
     border: 0.7em solid lightgray;
     border-radius: 50%;
     animation: borde 4s infinite;
+    transition: 1s ease;
 }
 
 
@@ -204,6 +210,28 @@ header ul {
 
 #info_principal_header {
     margin: 0;
+}
+
+#idioma{
+    flex-grow: 1;
+    flex-flow: row-reverse;
+}
+
+#idioma a{
+    margin: 0 8px;
+}
+
+#idioma a:hover{
+    color: rgb(22, 37, 58);
+}
+
+#idioma #esp{
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+#idioma a img{
+    max-width: 20px;
 }
 
 #aside {
@@ -268,10 +296,6 @@ header ul {
 .container_rrss a p {
     position: relative;
     top: 7px;
-}
-
-#container_software {
-    text-align: center;
 }
 
 .fila img {
@@ -386,6 +410,10 @@ main .border_left h4 {
 #mobile h2,
 #mobile h3,
 #mobile h4 {
+    text-align: center;
+}
+
+.text-center{
     text-align: center;
 }
 
