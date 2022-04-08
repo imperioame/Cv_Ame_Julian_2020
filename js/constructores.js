@@ -1,15 +1,20 @@
-const datos_personales = [];
-const tipo_dato_personal = ['telefono', 'correo', 'domicilio', 'pais', 'provincia_estado', 'fecha_nacimiento', 'foto_perfil'];
-const trabajos = [];
-const actividades = [];
+const DATOS_PERSONALES = [];
+const TIPO_DATO_PERSONAL = ['nombres', 'apellidos', 'telefono', 'correo', 'domicilio', 'pais', 'provincia_estado', 'barrio', 'codigo_postal', 'fecha_nacimiento', 'foto_perfil','titulo_destacado','profesion_destacada','perfil_extracto'];
+const TRABAJOS = [];
+const ACTIVIDADES = [];
 /*const menciones = [];*/
-const software = [];
-const educacion = [];
-const idiomas = [];
-const rrss = [];
+const SOFTWARES = [];
+const SOFTWARES_USUARIO = [];
+const EDUCACION = [];
+const COMPETENCIAS = [];
+const IDIOMAS_DISPONIBLES_EN_SITIO = [];
+const IDIOMAS_DEL_CV = [];
+const IDIOMAS_DEL_USUARIO = [];
+const RRSS = [];
+const RRSS_USUARIO = [];
 
 class Dato {
-    constructor(tipo_dato_personal, dato){
+    constructor(tipo_dato_personal, dato) {
         this.tipo_dato_personal = tipo_dato_personal;
         this.dato = dato;
     }
@@ -21,14 +26,14 @@ class Dato {
         return this.dato;
     }
 
-    setTipoDatoPersonal(nuevoTipo_dato_personal){
+    setTipoDatoPersonal(nuevoTipo_dato_personal) {
         nuevoTipo_dato_personal = nuevoTipo_dato_personal.trim();
         if (nuevoTipo_dato_personal === '') {
             throw 'no puede estar vacío';
         }
         this.tipo_dato_personal = nuevoTipo_dato_personal;
     }
-    setDato(nuevoDato){
+    setDato(nuevoDato) {
         nuevoDato = nuevoDato.trim();
         if (nuevoDato === '') {
             throw 'no puede estar vacío';
@@ -128,7 +133,7 @@ class Actividad {
     constructor(titulo, subtitulo = '', descripcion, titulo_url = [], fecha = '', fecha_hasta = '') {
 
         this.titulo = titulo;
-        this.subtitulo = subtitulo ;
+        this.subtitulo = subtitulo;
         this.descripcion = descripcion;
         this.titulo_url = titulo_url;
         this.fecha = fecha;
@@ -197,10 +202,40 @@ class Software {
     constructor(titulo, logo = '') {
 
         this.titulo = titulo;
-        this.subtitulo = subtitulo ;
+        this.logo = logo;
+    }
+
+    //Getters
+    getTitulo() {
+        return this.titulo;
+    }
+    getLogo() {
+        return this.logo;
+    }
+
+
+    //Setters
+    setTitulo(nuevoTitulo) {
+        nuevoTitulo = nuevoTitulo.trim();
+        if (nuevoTitulo === '') {
+            throw 'no puede estar vacío';
+        }
+        this.titulo = nuevoTitulo;
+    }
+    setLogo(nuevoLogo) {
+        this.logo = nuevoLogo;
+    }
+    
+}
+
+class Educacion {
+    //func constructora para cargar actividades
+    constructor(titulo, institucion, descripcion, fecha_desde, fecha_hasta = 'Presente') {
+
+        this.titulo = titulo;
+        this.institucion = institucion;
         this.descripcion = descripcion;
-        this.titulo_url = titulo_url;
-        this.fecha = fecha;
+        this.fecha_desde = fecha_desde;
         this.fecha_hasta = fecha_hasta;
     }
 
@@ -208,17 +243,14 @@ class Software {
     getTitulo() {
         return this.titulo;
     }
-    getSubtitulo() {
-        return this.subtitulo;
+    getInstitucion() {
+        return this.institucion;
     }
     getDescripcion() {
         return this.descripcion;
     }
-    getTituloUrl() {
-        return this.titulo_url;
-    }
-    getFecha() {
-        return this.fecha;
+    getFechaDesde() {
+        return this.fecha_desde;
     }
     getFechaHasta() {
         return this.fecha_hasta;
@@ -226,15 +258,19 @@ class Software {
 
 
     //Setters
-    setPosicion(nuevoTitulo) {
+    setTitulo(nuevoTitulo) {
         nuevoTitulo = nuevoTitulo.trim();
         if (nuevoTitulo === '') {
             throw 'no puede estar vacío';
         }
         this.titulo = nuevoTitulo;
     }
-    setEmpleador(nuevoSubtitulo) {
-        this.subtitulo = nuevoSubtitulo;
+    setInstitucion(nuevaInstitucion) {
+        nuevaInstitucion = nuevaInstitucion.trim();
+        if (nuevaInstitucion === '') {
+            throw 'no puede estar vacío';
+        }
+        this.institucion = nuevaInstitucion;
     }
     setDescripcion(nuevaDescripcion) {
         nuevaDescripcion = nuevaDescripcion.trim();
@@ -243,26 +279,175 @@ class Software {
         }
         this.descripcion = nuevaDescripcion;
     }
-    setWeb(nuevoTitulo_url) {
-        this.titulo_url = nuevoTitulo_url;
+    setFechaDesde(nuevaFecha_desde) {
+        nuevaFecha_desde = nuevaFecha_desde.trim();
+        if (nuevaFecha_desde === '') {
+            throw 'no puede estar vacío';
+        }
+        this.fecha_desde = nuevaFecha_desde;
     }
-    setFechaDesde(nuevaFecha) {
-        this.fecha = nuevaFecha;
-    }
-    setFechaHasta(nuevaFecha_hasta) {
+    setFechaDesde(nuevaFecha_hasta) {
+        nuevaFecha_hasta = nuevaFecha_hasta.trim();
+        if (nuevaFecha_desde === '') {
+            nuevaFecha_hasta = 'Presente'
+        }
         this.fecha_hasta = nuevaFecha_hasta;
     }
-
 }
 
-function Educacion() {
+class Competencia {
     //func constructora para cargar actividades
+    constructor(titulo, porcentaje = 0){
+        this.titulo = titulo;
+        this.porcentaje = porcentaje;
+    }
+
+    //Getters
+    getTitulo(){
+        return this.titulo;
+    }
+    getPorcentaje(){
+        return this.porcentaje;
+    }
+
+    //Setters
+    setTitulo(nuevoTitulo) {
+        nuevoTitulo = nuevoTitulo.trim();
+        if (nuevoTitulo === '') {
+            throw 'no puede estar vacío';
+        }
+        this.titulo = nuevoTitulo;
+    }
+
+    setPorcentaje(nuevoPorcentaje) {
+        nuevoPorcentaje = nuevoPorcentaje.trim();
+        if (nuevoPorcentaje === '') {
+            nuevoPorcentaje = 0;
+        }
+        this.porcentaje = nuevoPorcentaje;
+    }
 }
 
-function Idioma() {
-    //func constructora para cargar actividades
+class Idioma_del_sitio {
+    //func constructora para cargar idiomas
+    constructor(titulo, icono = ''){
+        this.titulo = titulo;
+        this.icono = icono;
+    }
+
+    //Getters
+    getTitulo() {
+        return this.titulo;
+    }
+    getIcono() {
+        return this.icono;
+    }
+
+    //Setters
+    setTitulo(nuevoTitulo) {
+        nuevoTitulo = nuevoTitulo.trim();
+        if (nuevoTitulo === '') {
+            throw 'no puede estar vacío';
+        }
+        this.titulo = nuevoTitulo;
+    }
+    setIcono(nuevoIcono) {
+        this.icono = nuevoIcono;
+    }
+
 }
 
-function Rrss() {
+class Idioma_del_usuario {
+    //func constructora para cargar idiomas
+    constructor(titulo, porcentaje = 0){
+        this.titulo = titulo;
+        this.porcentaje = porcentaje;
+    }
+
+    //Getters
+    getTitulo() {
+        return this.titulo;
+    }
+    getIcono() {
+        return this.porcentaje;
+    }
+
+    //Setters
+    setTitulo(nuevoTitulo) {
+        nuevoTitulo = nuevoTitulo.trim();
+        if (nuevoTitulo === '') {
+            throw 'no puede estar vacío';
+        }
+        this.titulo = nuevoTitulo;
+    }
+    setPorcentaje(nuevoPorcentaje) {
+        nuevoPorcentaje = nuevoPorcentaje.trim();
+        if (nuevoPorcentaje === '') {
+            nuevoPorcentaje = 0;
+        }
+        this.porcentaje = nuevoPorcentaje;
+    }
+
+}
+
+class Rrss {
     //func constructora para cargar rrss
+
+    constructor(titulo, icono = ''){
+        this.titulo = titulo;
+        this.icono = icono;
+    }
+
+    //Getters
+    getTitulo() {
+        return this.titulo;
+    }
+    getIcono() {
+        return this.icono;
+    }
+
+    //Setters
+    setTitulo(nuevoTitulo) {
+        nuevoTitulo = nuevoTitulo.trim();
+        if (nuevoTitulo === '') {
+            throw 'no puede estar vacío';
+        }
+        this.titulo = nuevoTitulo;
+    }
+    setIcono(nuevoIcono) {
+        this.icono = nuevoIcono;
+    }
+}
+
+class Rrss_usuario {
+    //func constructora para cargar rrss
+
+    constructor(rrss, link){
+        this.rrss = rrss;
+        this.link = link;
+    }
+
+        //Getters
+        getTitulo() {
+            return this.titulo;
+        }
+        getlink() {
+            return this.link;
+        }
+    
+        //Setters
+        setTitulo(nuevoTitulo) {
+            nuevoTitulo = nuevoTitulo.trim();
+            if (nuevoTitulo === '') {
+                throw 'no puede estar vacío';
+            }
+            this.titulo = nuevoTitulo;
+        }
+        setLink(nuevoLink) {
+            nuevoLink = nuevoLink.trim();
+            if (nuevoLink === '') {
+                throw 'no puede estar vacío';
+            }
+            this.link = nuevoLink;
+        }
 }
