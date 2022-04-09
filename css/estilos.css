@@ -261,21 +261,75 @@ header ul {
     background-color: lightslategray;
 }
 
-.noventa {
-    width: 90%;
+.progress_0 {
+    width: 0%;
 }
-
-.setenta_y_cinco {
-    width: 75%;
+.progress_5 {
+    width: 5%;
 }
-
-.cincuenta {
-    width: 50%;
+.progress_10 {
+    width: 10%;
 }
-
-.veinticinco {
+.progress_15 {
+    width: 15%;
+}
+.progress_20 {
+    width: 20%;
+}
+.progress_25 {
     width: 25%;
 }
+.progress_30 {
+    width: 30%;
+}
+.progress_35 {
+    width: 35%;
+}
+.progress_40 {
+    width: 40%;
+}
+.progress_45 {
+    width: 45%;
+}
+.progress_50 {
+    width: 50%;
+}
+.progress_55 {
+    width: 55%;
+}
+.progress_60 {
+    width: 60%;
+}
+.progress_65 {
+    width: 65%;
+}
+.progress_70 {
+    width: 70%;
+}
+.progress_75 {
+    width: 75%;
+}
+.progress_80 {
+    width: 80%;
+}
+.progress_85 {
+    width: 75%;
+}
+.progress_90 {
+    width: 90%;
+}
+.progress_95 {
+    width: 95%;
+}
+.progress_100 {
+    width: 100%;
+}
+
+
+
+
+
+
 
 .container_rrss a p {
     word-break:keep-all;
