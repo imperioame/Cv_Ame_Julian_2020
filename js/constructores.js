@@ -12,7 +12,8 @@ const IDIOMAS_DEL_USUARIO = [];
 const RRSS_USUARIO = [];
 
 class Dato {
-    constructor(tipo_dato_personal, dato) {
+    constructor(tipo_dato_personal, dato, idioma = '') {
+        this.idioma = idioma;
         this.tipo_dato_personal = tipo_dato_personal;
         this.dato = dato;
     }
@@ -22,6 +23,9 @@ class Dato {
     }
     getDato() {
         return this.dato;
+    }
+    getIdioma() {
+        return this.idioma;
     }
 
     setTipoDatoPersonal(nuevoTipo_dato_personal) {
@@ -38,14 +42,22 @@ class Dato {
         }
         this.dato = nuevoDato;
     }
+    setIdioma(nuevoIdioma) {
+        nuevoIdioma = nuevoIdioma.trim();
+        if (nuevoIdioma === '') {
+            throw 'no puede estar vacío';
+        }
+        this.idioma = nuevoIdioma;
+    }
 }
 
 
 class Trabajo {
     //func constructora para cargar trabajos
 
-    constructor(posicion, empleador, area = '', descripcion, web = '', fecha_desde, fecha_hasta = 'Presente') {
+    constructor(posicion, empleador, area = '', descripcion, web = '', fecha_desde, fecha_hasta = 'Presente', idioma = '') {
 
+        this.idioma = idioma;
         this.posicion = posicion;
         this.empleador = empleador;
         this.area = area;
@@ -78,7 +90,9 @@ class Trabajo {
     getFechaHasta() {
         return this.fecha_hasta;
     }
-
+    getIdioma() {
+        return this.idioma;
+    }
 
     //Setters
     setPosicion(nuevaPosicion) {
@@ -122,14 +136,23 @@ class Trabajo {
         }
         this.fecha_hasta = nuevaFecha_hasta;
     }
+    setIdioma(nuevoIdioma) {
+        nuevoIdioma = nuevoIdioma.trim();
+        if (nuevoIdioma === '') {
+            throw 'no puede estar vacío';
+        }
+        this.idioma = nuevoIdioma;
+    }
+
 
 }
 
 class Actividad {
     //func constructora para cargar acgtividades
 
-    constructor(titulo, subtitulo = '', descripcion, titulo_url = [], fecha = '', fecha_hasta = '') {
+    constructor(titulo, subtitulo = '', descripcion, titulo_url = [], fecha = '', fecha_hasta = '', idioma = '') {
 
+        this.idioma = idioma;
         this.titulo = titulo;
         this.subtitulo = subtitulo;
         this.descripcion = descripcion;
@@ -157,7 +180,9 @@ class Actividad {
     getFechaHasta() {
         return this.fecha_hasta;
     }
-
+    getIdioma() {
+        return this.idioma;
+    }
 
     //Setters
     setPosicion(nuevoTitulo) {
@@ -185,6 +210,13 @@ class Actividad {
     }
     setFechaHasta(nuevaFecha_hasta) {
         this.fecha_hasta = nuevaFecha_hasta;
+    }
+    setIdioma(nuevoIdioma) {
+        nuevoIdioma = nuevoIdioma.trim();
+        if (nuevoIdioma === '') {
+            throw 'no puede estar vacío';
+        }
+        this.idioma = nuevoIdioma;
     }
 
 }
@@ -228,8 +260,9 @@ class Software {
 
 class Educacion {
     //func constructora para cargar actividades
-    constructor(titulo, institucion, descripcion, fecha_desde, fecha_hasta = 'Presente') {
+    constructor(titulo, institucion, descripcion, fecha_desde, fecha_hasta = 'Presente', idioma = '') {
 
+        this.idioma = idioma;
         this.titulo = titulo;
         this.institucion = institucion;
         this.descripcion = descripcion;
@@ -253,7 +286,9 @@ class Educacion {
     getFechaHasta() {
         return this.fecha_hasta;
     }
-
+    getIdioma() {
+        return this.idioma;
+    }
 
     //Setters
     setTitulo(nuevoTitulo) {
@@ -291,11 +326,20 @@ class Educacion {
         }
         this.fecha_hasta = nuevaFecha_hasta;
     }
+    setIdioma(nuevoIdioma) {
+        nuevoIdioma = nuevoIdioma.trim();
+        if (nuevoIdioma === '') {
+            throw 'no puede estar vacío';
+        }
+        this.idioma = nuevoIdioma;
+    }
+
 }
 
 class Competencia {
     //func constructora para cargar actividades
-    constructor(titulo, porcentaje = 0) {
+    constructor(titulo, porcentaje = 0, idioma = '') {
+        this.idioma = idioma;
         this.titulo = titulo;
         this.porcentaje = porcentaje;
     }
@@ -306,6 +350,9 @@ class Competencia {
     }
     getPorcentaje() {
         return this.porcentaje;
+    }
+    getIdioma() {
+        return this.idioma;
     }
 
     //Setters
@@ -324,30 +371,38 @@ class Competencia {
         }
         this.porcentaje = nuevoPorcentaje;
     }
+    setIdioma(nuevoIdioma) {
+        nuevoIdioma = nuevoIdioma.trim();
+        if (nuevoIdioma === '') {
+            throw 'no puede estar vacío';
+        }
+        this.idioma = nuevoIdioma;
+    }
+
 }
 
 class Idioma_del_sitio {
     //func constructora para cargar idiomas
-    constructor(titulo, icono = '') {
-        this.titulo = titulo;
+    constructor(idioma, icono = '') {
+        this.idioma = idioma;
         this.icono = icono;
     }
 
     //Getters
-    getTitulo() {
-        return this.titulo;
+    getIdioma() {
+        return this.idioma;
     }
     getIcono() {
         return this.icono;
     }
 
     //Setters
-    setTitulo(nuevoTitulo) {
-        nuevoTitulo = nuevoTitulo.trim();
-        if (nuevoTitulo === '') {
+    setIdioma(nuevoIdioma) {
+        nuevoIdioma = nuevoIdioma.trim();
+        if (nuevoIdioma === '') {
             throw 'no puede estar vacío';
         }
-        this.titulo = nuevoTitulo;
+        this.idioma = nuevoIdioma;
     }
     setIcono(nuevoIcono) {
         this.icono = nuevoIcono;
@@ -448,4 +503,61 @@ class Rrss_usuario {
         }
         this.link = nuevoLink;
     }
+}
+
+class Seccion_cv {
+    //func constructora para cargar las secciones del cv
+
+    constructor(template_cv, posicion_en_cv, titulo, idioma = '') {
+        this.template_cv = template_cv;
+        this.posicion_en_cv = posicion_en_cv;
+        this.titulo = titulo;
+        this.idioma = idioma;
+    }
+
+    //Getters
+    getTitulo() {
+        return this.titulo;
+    }
+    getPosicion_en_cv() {
+        return this.posicion_en_cv;
+    }
+    getTemplate_cv() {
+        return this.template_cv;
+    }
+    getIdioma() {
+        return this.idioma;
+    }
+
+    //Setters
+    setTitulo(nuevoTitulo) {
+        nuevoTitulo = nuevoTitulo.trim();
+        if (nuevoTitulo === '') {
+            throw 'no puede estar vacío';
+        }
+        this.titulo = nuevoTitulo;
+    }
+    setPosicion_en_cv(nuevoPosicion_en_cv) {
+        nuevoPosicion_en_cv = nuevoPosicion_en_cv.trim();
+        if (nuevoPosicion_en_cv === '') {
+            throw 'no puede estar vacío';
+        }
+        this.posicion_en_cv = nuevoPosicion_en_cv;
+    }
+
+    setTemplate_cv(nuevoTemplate_cv) {
+        nuevoTemplate_cv = nuevoTemplate_cv.trim();
+        if (nuevoTemplate_cv === '') {
+            throw 'no puede estar vacío';
+        }
+        this.template_cv = nuevoTemplate_cv;
+    }
+    setIdioma(nuevoIdioma) {
+        nuevoIdioma = nuevoIdioma.trim();
+        if (nuevoIdioma === '') {
+            throw 'no puede estar vacío';
+        }
+        this.idioma = nuevoIdioma;
+    }
+
 }

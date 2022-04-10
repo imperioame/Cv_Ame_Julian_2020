@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -8,12 +8,13 @@
 
     <link rel="shortcut icon" href="img/icos/favicon.png" type="image/x-icon">
 
-
-    <title>Julián Amé</title>
     <!-- Bienvenido al desierto de lo real -->
     <!-- Este CV está maqueteado a mano, por el mismo autor.
     No se utilizó ningún framework para mantener la simplicidad.
-    Se utilizó flex (css puro) para ser responsive-->
+    Se utilizó flex (css puro) para ser responsive
+    
+    Se trabajó la carga de contenído dinámico por Js. Chequeá la consola.
+-->
 
 
     <link rel="stylesheet" href="css/estilos.css">
@@ -71,25 +72,22 @@
                 <div id="perfil">
                     <div class="titular_separador_main">
                         <img src="img/icos/icons_Perfil.svg" alt="perfil">
-                        <h3>Perfil</h3>
                     </div>
                 </div>
                 <!-- SECCIÓN EXPERIENCIA LABORAL -->
-                <div>
+                <div id="experiencia_laboral">
                     <div class="titular_separador_main">
                         <img src="img/icos/icons_Experiencia_laboral.svg" alt="experiencia_laboral">
-                        <h3>Experiencia Laboral</h3>
                     </div>
-                    <div id="experiencia_laboral" class="border_left">
+                    <div class="border_left">
                     </div>
                 </div>
                 <!-- SECCIÓN DE OTRAS ACTIVIDADES -->
-                <div>
+                <div id="actividades">
                     <div class="titular_separador_main">
                         <img src="img/icos/icons_Otras_actividades.svg" alt="Otras Actividades">
-                        <h3>Otras Actividades</h3>
                     </div>
-                    <div id="actividades" class="border_left">
+                    <div class="border_left">
                     </div>
                 </div>
                 <!-- 
@@ -121,36 +119,28 @@
         <div class="container_columnas flex_al_centro">
             <div id="foto_perfil_mobile"><a href="#img_perfil_ampliada"></a></div>
             <div id="info_principal_mobile">
-                <h1>Julián Amé</h1>
-                <h2>Diseñador Multimedial <br> Project Manager</h2>
-                <ul>
-                    <li> Palermo, CABA, Argentina</li>
-                    <li><a href="mailto:julianmmame@gmail.com">julianmmame@gmail.com</a></li>
-                    <li><a href="tel:+5491159818605">+54 911 5981 8605</a></li>
-                </ul>
             </div>
         </div class="container_columnas flex_al_centro">
-
+        <!-- 
         <section class="container_columnas flex_al_centro mt-2 mb-2">
             <a href="PDF/Cv2020.pdf" target="_blank" title="Descargar PDF" id="descarga_mobile">
                 <img src="img/icos/pdf.svg" alt="Descargar PDF">
                 <p>Descargar PDF</p>
             </a>
         </section>
+         -->
     </div>
 
     <div id="contenedor_perfil_ampliado">
-        <div class="container_filas flex_al_centro mt-2">
+        <div class="container_filas flex_al_centro">
             <div id="img_perfil_ampliada">
                 <div id="boton_cerrar"><a href=""><img src="img/icos/cerrar.svg" alt="Cerrar" title="Cerrar"></a>
                 </div>
-                <!--<img src="img/perfil_julian.jpg" alt="Foto perfil de Julián Amé" title="Julián Amé"> -->
             </div>
         </div>
     </div>
 
-    <footer class="container_columnas text-center">
-        <small>Última actualización: <strong>Abr. 2022</strong></small>
+    <footer id="ultima_actualizacion" class="container_columnas text-center">
     </footer>
 
     <script src="js/constructores.js"></script>

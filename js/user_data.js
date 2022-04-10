@@ -20,11 +20,15 @@ dato = new Dato('telefono','+549 11 5981 8605');
 DATOS_PERSONALES.push(dato);
 dato = new Dato('fecha_nacimiento','20/02/1993');
 DATOS_PERSONALES.push(dato);
-dato = new Dato('titulo_destacado','Lic. Comunicación Digital');
+dato = new Dato('titulo_destacado','Lic. Comunicación Digital','esp');
+DATOS_PERSONALES.push(dato);
+dato = new Dato('titulo_destacado','Bachelor degree in Digital Communication', 'eng');
 DATOS_PERSONALES.push(dato);
 dato = new Dato('profesion_destacada','Project Manager');
 DATOS_PERSONALES.push(dato);
-dato = new Dato('perfil_extracto','Diseñador Multimedial y líder de proyectos digitales. <br>Emprendedor y apasionado en la organización y organizaciones. <br>Técnico por naturaleza.');
+dato = new Dato('perfil_extracto','Diseñador Multimedial y líder de proyectos digitales. <br>Emprendedor y apasionado en la organización y organizaciones. <br>Técnico por naturaleza.','esp');
+DATOS_PERSONALES.push(dato);
+dato = new Dato('perfil_extracto','Multimedia Designer and Digital PM.<br> Entrepreneur and passionate about organizations and organization.<br> Natural born technician.','eng');
 DATOS_PERSONALES.push(dato);
 
 
