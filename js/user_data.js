@@ -86,14 +86,15 @@ rrss = new Rrss_usuario('Flickr', 'https://flickr.com/photos/imperioame');
 RRSS_USUARIO.push(rrss);
 rrss = new Rrss_usuario('Linkedin', 'https://linkedin.com/in/julian-ame');
 RRSS_USUARIO.push(rrss);
-rrss = new Rrss_usuario('Behance', 'https://behance.net/imperioame');
+rrss = new Rrss_usuario('Behance', 'http://behance.net/imperioame');
 RRSS_USUARIO.push(rrss);
 
 
-let trabajo = new Trabajo('Qa Lead', 'Ministerio de Desarrollo productivo de la Nación', 'Dirección General de Tecnologías de la Información y las Comunicaciones', 'Lider de equipo de Quality Assurance en sistemas de política pública. Consultor en definición estándares de documentación, manuales y procesos.<br> Auditor de sistemas (testeos) y documentación. Asesor en metodologías de trabajo para proyectos y en conformación de equipos de trabajo.', '', 'junio 2020','');
+let trabajo = new Trabajo('Qa Lead', 'Ministerio de Desarrollo productivo de la Nación', 'Dirección General de Tecnologías de la Información y las Comunicaciones', 'Lider de equipo de Quality Assurance en sistemas de política pública.<br> Consultor en definición estándares de documentación, manuales y procesos.<br> Auditor de sistemas (testeos) y documentación.<br> Asesor en metodologías de trabajo para proyectos y en conformación de equipos de trabajo.', '', 'junio 2020');
 TRABAJOS.push(trabajo);
-trabajo = new Trabajo('Coordinador de productos digitales', 'Fundación Landrú', '', 'Coordinador de equipos y desarrollos de productos digitales.<br>Gestión de equipos externos de trabajo y colaboradores, y de roles por proyecto.<br>Definición de alcance de proyectos digitales informáticos y multimediales. Análisis de factibilidad técnica de propuestas y proyectos.<br>Auditoría de funcionalidades de sistemas existentes y propuestos.<br>Diseño de sistemas por relevamiento de usuarios y de funcionalidades.<br>Prototipado y desarrollo de crudos como Proof of Concept para nuevas propuestas.', '', 'junio 2021','');
-trabajo = new Trabajo('Asesor en Comunicaciones digitales e Informática', 'Antrieb Sudamericana S.A.', '', 'Asesor generalista en cuestiones informáticas y de comunicación.<br>Diseño de estrategias de comunicación.<br>Desarrollo de campañas publicitarias de bajo costo/orgánicas.<br>Diseño de piezas publicitarias y de comunicación.<br>Gestión de desarrollo de página web institucional.<br>Optimización SEO.<br>Consultor en selección de proveedores informáticos (infraestructura y web).<br>Consultor y selección de presupuestos de equipamiento informático / servicios informáticos.', 'https://antriebsa.com/', 'febrero 2020','');
+trabajo = new Trabajo('Coordinador de productos digitales', 'Fundación Landrú', '', 'Coordinador de equipos y desarrollos de productos digitales.<br>Gestión de equipos externos de trabajo y colaboradores, y de roles por proyecto.<br>Definición de alcance de proyectos digitales informáticos y multimediales. Análisis de factibilidad técnica de propuestas y proyectos.<br>Auditoría de funcionalidades de sistemas existentes y propuestos.<br>Diseño de sistemas por relevamiento de usuarios y de funcionalidades.<br>Prototipado y desarrollo de crudos como Proof of Concept para nuevas propuestas.', '', 'junio 2021');
+TRABAJOS.push(trabajo);
+trabajo = new Trabajo('Asesor en Comunicaciones digitales e Informática', 'Antrieb Sudamericana S.A.', '', 'Asesor generalista en cuestiones informáticas y de comunicación.<br>Diseño de estrategias de comunicación.<br>Desarrollo de campañas publicitarias de bajo costo/orgánicas.<br>Diseño de piezas publicitarias y de comunicación.<br>Gestión de desarrollo de página web institucional.<br>Optimización SEO.<br>Consultor en selección de proveedores informáticos (infraestructura y web).<br>Consultor y selección de presupuestos de equipamiento informático / servicios informáticos.', 'https://antriebsa.com/', 'febrero 2020');
 TRABAJOS.push(trabajo);
 
 

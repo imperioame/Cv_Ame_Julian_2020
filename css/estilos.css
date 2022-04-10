@@ -212,25 +212,25 @@ header ul {
     margin: 0;
 }
 
-#idioma{
+#idioma_cv{
     flex-grow: 1;
     flex-flow: row-reverse;
 }
 
-#idioma a{
+#idioma_cv a{
     margin: 0 8px;
 }
 
-#idioma a:hover{
+#idioma_cv a:hover{
     color: rgb(22, 37, 58);
 }
 
-#idioma #esp{
+#idioma_cv #esp{
     cursor: not-allowed;
     pointer-events: none;
 }
 
-#idioma a img{
+#idioma_cv a img{
     max-width: 20px;
 }
 

@@ -1,5 +1,5 @@
 const DATOS_PERSONALES = [];
-const TIPO_DATO_PERSONAL = ['nombres', 'apellidos', 'telefono', 'correo', 'domicilio', 'pais', 'provincia_estado', 'barrio', 'codigo_postal', 'fecha_nacimiento', 'foto_perfil','titulo_destacado','profesion_destacada','perfil_extracto'];
+const TIPO_DATO_PERSONAL = ['nombres', 'apellidos', 'telefono', 'correo', 'domicilio', 'pais', 'provincia_estado', 'barrio', 'codigo_postal', 'fecha_nacimiento', 'foto_perfil', 'titulo_destacado', 'profesion_destacada', 'perfil_extracto'];
 const TRABAJOS = [];
 const ACTIVIDADES = [];
 /*const menciones = [];*/
@@ -7,10 +7,8 @@ const SOFTWARES = [];
 const SOFTWARES_USUARIO = [];
 const EDUCACION = [];
 const COMPETENCIAS = [];
-const IDIOMAS_DISPONIBLES_EN_SITIO = [];
 const IDIOMAS_DEL_CV = [];
 const IDIOMAS_DEL_USUARIO = [];
-const RRSS = [];
 const RRSS_USUARIO = [];
 
 class Dato {
@@ -225,7 +223,7 @@ class Software {
     setLogo(nuevoLogo) {
         this.logo = nuevoLogo;
     }
-    
+
 }
 
 class Educacion {
@@ -297,16 +295,16 @@ class Educacion {
 
 class Competencia {
     //func constructora para cargar actividades
-    constructor(titulo, porcentaje = 0){
+    constructor(titulo, porcentaje = 0) {
         this.titulo = titulo;
         this.porcentaje = porcentaje;
     }
 
     //Getters
-    getTitulo(){
+    getTitulo() {
         return this.titulo;
     }
-    getPorcentaje(){
+    getPorcentaje() {
         return this.porcentaje;
     }
 
@@ -330,7 +328,7 @@ class Competencia {
 
 class Idioma_del_sitio {
     //func constructora para cargar idiomas
-    constructor(titulo, icono = ''){
+    constructor(titulo, icono = '') {
         this.titulo = titulo;
         this.icono = icono;
     }
@@ -359,7 +357,7 @@ class Idioma_del_sitio {
 
 class Idioma_del_usuario {
     //func constructora para cargar idiomas
-    constructor(titulo, porcentaje = 0){
+    constructor(titulo, porcentaje = 0) {
         this.titulo = titulo;
         this.porcentaje = porcentaje;
     }
@@ -368,7 +366,7 @@ class Idioma_del_usuario {
     getTitulo() {
         return this.titulo;
     }
-    getIcono() {
+    getPorcentaje() {
         return this.porcentaje;
     }
 
@@ -393,7 +391,7 @@ class Idioma_del_usuario {
 class Rrss {
     //func constructora para cargar rrss
 
-    constructor(titulo, icono = ''){
+    constructor(titulo, icono = '') {
         this.titulo = titulo;
         this.icono = icono;
     }
@@ -422,32 +420,32 @@ class Rrss {
 class Rrss_usuario {
     //func constructora para cargar rrss
 
-    constructor(rrss, link){
-        this.rrss = rrss;
+    constructor(titulo, link) {
+        this.titulo = titulo;
         this.link = link;
     }
 
-        //Getters
-        getTitulo() {
-            return this.titulo;
+    //Getters
+    getTitulo() {
+        return this.titulo;
+    }
+    getLink() {
+        return this.link;
+    }
+
+    //Setters
+    setTitulo(nuevoTitulo) {
+        nuevoTitulo = nuevoTitulo.trim();
+        if (nuevoTitulo === '') {
+            throw 'no puede estar vacío';
         }
-        getlink() {
-            return this.link;
+        this.titulo = nuevoTitulo;
+    }
+    setLink(nuevoLink) {
+        nuevoLink = nuevoLink.trim();
+        if (nuevoLink === '') {
+            throw 'no puede estar vacío';
         }
-    
-        //Setters
-        setTitulo(nuevoTitulo) {
-            nuevoTitulo = nuevoTitulo.trim();
-            if (nuevoTitulo === '') {
-                throw 'no puede estar vacío';
-            }
-            this.titulo = nuevoTitulo;
-        }
-        setLink(nuevoLink) {
-            nuevoLink = nuevoLink.trim();
-            if (nuevoLink === '') {
-                throw 'no puede estar vacío';
-            }
-            this.link = nuevoLink;
-        }
+        this.link = nuevoLink;
+    }
 }
