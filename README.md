@@ -1,2 +1,2 @@
 # Cv_Ame_Julian_2020
-Curriuculum web De Julián Amé
+Curriculum vitae desarrollado con carga dinámica en front por js puro.
