@@ -140,7 +140,7 @@ ACTIVIDADES.push(actividad);
 actividad = new Actividad('Volunteer Paramedic','in "SEC Socorrismo"',"Concerts and Events medical corps volunteer.<br> I've managed rescue patrols and teams, as well as do primary care to victims in need.<br>Instructed with more than 20 training courses of medical attention, requiered for the activity.<br>I've been present in more than 70 events, including masive concerts in stadiums and private fests",'','january 2012','january 2016','eng');
 ACTIVIDADES.push(actividad);
 
-let cv = new Cv('esp','CV Ame - 2022-04 ESP.pdf');
+let cv = new Cv('esp','CV_Ame-2022_04-ESP.pdf');
 CVS_DE_USUARIO.push(cv);
-cv = new Cv('eng','CV Ame - 2022-04 ING.pdf');
+cv = new Cv('eng','CV_Ame-2022_04-ING.pdf');
 CVS_DE_USUARIO.push(cv);
