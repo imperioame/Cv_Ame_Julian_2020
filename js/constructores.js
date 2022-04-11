@@ -383,14 +383,18 @@ class Competencia {
 
 class Idioma_del_sitio {
     //func constructora para cargar idiomas
-    constructor(idioma, icono = '') {
+    constructor(idioma, idioma_completo, icono = '') {
         this.idioma = idioma;
+        this.idioma_completo = idioma_completo;
         this.icono = icono;
     }
 
     //Getters
     getIdioma() {
         return this.idioma;
+    }
+    getIdioma_completo() {
+        return this.idioma_completo;
     }
     getIcono() {
         return this.icono;
@@ -403,6 +407,13 @@ class Idioma_del_sitio {
             throw 'no puede estar vacío';
         }
         this.idioma = nuevoIdioma;
+    }
+    setIdioma_completo(nuevoIdioma_completo) {
+        nuevoIdioma_completo = nuevoIdioma_completo.trim();
+        if (nuevoIdioma_completo === '') {
+            throw 'no puede estar vacío';
+        }
+        this.idioma_completo = nuevoIdioma_completo;
     }
     setIcono(nuevoIcono) {
         this.icono = nuevoIcono;

@@ -214,25 +214,30 @@ header ul {
     margin: 0;
 }
 
-#idioma_cv{
+#info_principal_mobile{
+    text-align: center;
+}
+
+#idioma_cv, #idioma_cv_mobile{
     flex-grow: 1;
     flex-flow: row-reverse;
 }
 
-#idioma_cv a{
+#idioma_cv_mobile {
+    margin: 50px 0 20px 0;    
+}
+
+
+#idioma_cv a, #idioma_cv_mobile a{
     margin: 0 8px;
 }
 
-#idioma_cv a:hover{
+
+#idioma_cv a:hover, #idioma_cv_mobile a:hover{
     color: rgb(22, 37, 58);
 }
 
-#idioma_cv #esp{
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-#idioma_cv a img{
+#idioma_cv a img, #idioma_cv_mobile a img{
     max-width: 20px;
 }
 

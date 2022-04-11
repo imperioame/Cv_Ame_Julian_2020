@@ -8,35 +8,117 @@ console.log('Si estás interesado en conocer cómo lo hice, podes chequear el re
 console.warn('https://github.com/imperioame/Cv_Ame_Julian_2020');
 
 
+
+let template_cv = 'original';
+
+
+
 function NombreDeSeccionCorrespondiente(seccion, lenguaje, template_cv){
     return SECCIONES_CV.filter(e => e.getPosicion_en_cv() == seccion && (e.getIdioma() == lenguaje || e.getIdioma() == '') && e.getTemplate_cv() == template_cv)[0].getTitulo();
 }
 
+function DatoPersonal(tipo_de_dato, lenguaje){
+    return DATOS_PERSONALES.filter(e => e.getTipoDatoPersonal() == tipo_de_dato && (e.getIdioma() == lenguaje || e.getIdioma() == ''))[0].getDato() ?? '';
+}
 
-let template_cv = 'original';
+function deleteAll(){
+    document.getElementById('idioma_cv').innerHTML = '';
+    document.getElementById('idioma_cv_mobile').innerHTML = '';
+    document.getElementsByTagName('head')[0].getElementsByTagName('meta')[document.getElementsByTagName('meta').length -1].remove();
+    document.getElementById('foto_perfil').getElementsByTagName('a')[0].innerHTML = '';
+    document.getElementById('foto_perfil_mobile').getElementsByTagName('a')[0].innerHTML = '';
+    document.getElementById('img_perfil_ampliada').innerHTML = '';
+    document.getElementById('info_principal_header').innerHTML = '';
+    document.getElementById('info_principal_mobile').innerHTML = '';
+    document.getElementById('detalles').innerHTML = '';
+    document.getElementById('educacion').innerHTML = '';
+    document.getElementById('competencias').innerHTML = '';
+    document.getElementById('softwares').innerHTML = '';
+    document.getElementById('idioma_usuario').innerHTML = '';
+    document.getElementById('rrss').innerHTML = '';
+    
+    if(document.getElementById('perfil').getElementsByTagName('div')[0].getElementsByTagName('h3').length > 0) document.getElementById('perfil').getElementsByTagName('div')[0].getElementsByTagName('h3')[0].remove();
+    if(document.getElementById('perfil').getElementsByTagName('p').length > 0) document.getElementById('perfil').getElementsByTagName('p')[0].remove();
+    
+    if(document.getElementById('experiencia_laboral').getElementsByTagName('div')[0].getElementsByTagName('h3').length > 0) document.getElementById('experiencia_laboral').getElementsByTagName('div')[0].getElementsByTagName('h3')[0].remove();
+    if(document.getElementById('experiencia_laboral').getElementsByTagName('div').length > 1) document.getElementById('experiencia_laboral').getElementsByTagName('div')[1].innerHTML = '';
+    
+    if(document.getElementById('actividades').getElementsByTagName('div')[0].getElementsByTagName('h3').length > 0) document.getElementById('actividades').getElementsByTagName('div')[0].getElementsByTagName('h3')[0].remove();
+    if(document.getElementById('actividades').getElementsByTagName('div').length > 1) document.getElementById('actividades').getElementsByTagName('div')[1].innerHTML = '';
+    document.getElementById('ultima_actualizacion').innerHTML = '';
+}
 
-function build(lenguaje){
 
-    document.documentElement.setAttribute("lang", idioma_actual.slice(0, -1));
 
-    let img_perfil = DATOS_PERSONALES.filter(e => e.getTipoDatoPersonal() === 'foto_perfil' && (e.getIdioma() == lenguaje || e.getIdioma() == ''))[0].getDato() ?? '';
-    let nombre = DATOS_PERSONALES.filter(e => e.getTipoDatoPersonal() === 'nombres' && (e.getIdioma() == lenguaje || e.getIdioma() == ''))[0].getDato() ?? '';
-    let apellido = DATOS_PERSONALES.filter(e => e.getTipoDatoPersonal() === 'apellidos' && (e.getIdioma() == lenguaje || e.getIdioma() == ''))[0].getDato() ?? '';
-    let domicilio = DATOS_PERSONALES.filter(e => e.getTipoDatoPersonal() === 'domicilio' && (e.getIdioma() == lenguaje || e.getIdioma() == ''))[0].getDato() ?? '';
-    let barrio = DATOS_PERSONALES.filter(e => e.getTipoDatoPersonal() === 'barrio' && (e.getIdioma() == lenguaje || e.getIdioma() == ''))[0].getDato() ?? '';
-    let provincia_estado = DATOS_PERSONALES.filter(e => e.getTipoDatoPersonal() === 'provincia_estado' && (e.getIdioma() == lenguaje || e.getIdioma() == ''))[0].getDato() ?? '';
-    let pais = DATOS_PERSONALES.filter(e => e.getTipoDatoPersonal() === 'pais' && (e.getIdioma() == lenguaje || e.getIdioma() == ''))[0].getDato() ?? '';
-    let codigo_postal = DATOS_PERSONALES.filter(e => e.getTipoDatoPersonal() === 'codigo_postal' && (e.getIdioma() == lenguaje || e.getIdioma() == ''))[0].getDato() ?? '';
-    let correo = DATOS_PERSONALES.filter(e => e.getTipoDatoPersonal() === 'correo' && (e.getIdioma() == lenguaje || e.getIdioma() == ''))[0].getDato() ?? '';
-    let telefono = DATOS_PERSONALES.filter(e => e.getTipoDatoPersonal() === 'telefono' && (e.getIdioma() == lenguaje || e.getIdioma() == ''))[0].getDato() ?? '';
-    let fecha_nacimiento = DATOS_PERSONALES.filter(e => e.getTipoDatoPersonal() === 'fecha_nacimiento' && (e.getIdioma() == lenguaje || e.getIdioma() == ''))[0].getDato() ?? '';
-    let titulo_destacado = DATOS_PERSONALES.filter(e => e.getTipoDatoPersonal() === 'titulo_destacado' && (e.getIdioma() == lenguaje || e.getIdioma() == ''))[0].getDato() ?? '';
-    let profesion_destacada = DATOS_PERSONALES.filter(e => e.getTipoDatoPersonal() === 'profesion_destacada' && (e.getIdioma() == lenguaje || e.getIdioma() == ''))[0].getDato() ?? '';
-    let perfil_extracto = DATOS_PERSONALES.filter(e => e.getTipoDatoPersonal() === 'perfil_extracto' && (e.getIdioma() == lenguaje || e.getIdioma() == ''))[0].getDato() ?? '';
+function build(lenguaje_solicitado){
+    deleteAll();
+
+    lenguaje = lenguaje_solicitado;
+    document.documentElement.setAttribute("lang", lenguaje.slice(0, -1));
+
+    for(let i = 0; i < IDIOMAS_DISPONIBLES_EN_SITIO.length; i++){
+        let a = document.createElement('a');
+
+        let img = document.createElement('img');
+        img.setAttribute("src", `img/icos/idiomas/${IDIOMAS_DISPONIBLES_EN_SITIO[i].getIcono()}`);
+        img.setAttribute('alt', `Idioma ${IDIOMAS_DISPONIBLES_EN_SITIO[i].getIdioma_completo()}`);
+        img.setAttribute('title', `Idioma ${IDIOMAS_DISPONIBLES_EN_SITIO[i].getIdioma_completo()}`);
+        a.appendChild(img);
+
+        a.innerHTML += `<br>${IDIOMAS_DISPONIBLES_EN_SITIO[i].getIdioma_completo()}`;
+        
+        let a_mobile = a.cloneNode(true);
+
+        if(IDIOMAS_DISPONIBLES_EN_SITIO[i].getIdioma() == lenguaje_solicitado){
+            a.addEventListener("click", function(event) { 
+                event.preventDefault();
+            });
+            a_mobile.addEventListener("click", function(event) { 
+                event.preventDefault();
+            });
+        }else{
+            a.setAttribute('href', `#${IDIOMAS_DISPONIBLES_EN_SITIO[i].getIdioma()}`);
+            a_mobile.setAttribute('href', `#${IDIOMAS_DISPONIBLES_EN_SITIO[i].getIdioma()}`);
+            a.addEventListener("click", function(event) { 
+                event.preventDefault();
+                build(IDIOMAS_DISPONIBLES_EN_SITIO[i].getIdioma());
+            });
+            a_mobile.addEventListener("click", function(event) { 
+                event.preventDefault();
+                build(IDIOMAS_DISPONIBLES_EN_SITIO[i].getIdioma());
+            });
+        }
+        
+
+        document.getElementById('idioma_cv').appendChild(a);
+        document.getElementById('idioma_cv_mobile').appendChild(a_mobile);
+    }
+
+
+
+
+    let img_perfil = DatoPersonal('foto_perfil', lenguaje);
+    let nombre = DatoPersonal('nombres', lenguaje);
+    let apellido = DatoPersonal('apellidos', lenguaje);
+    let domicilio = DatoPersonal('domicilio', lenguaje);
+    let barrio = DatoPersonal('barrio', lenguaje);
+    let provincia_estado = DatoPersonal('provincia_estado', lenguaje);
+    let pais = DatoPersonal('pais', lenguaje);
+    let codigo_postal = DatoPersonal('codigo_postal', lenguaje);  
+    let correo = DatoPersonal('correo', lenguaje);
+    let telefono = DatoPersonal('telefono', lenguaje);
+    let fecha_nacimiento = DatoPersonal('fecha_nacimiento', lenguaje);
+    let titulo_destacado = DatoPersonal('titulo_destacado', lenguaje);
+    let profesion_destacada = DatoPersonal('profesion_destacada', lenguaje);
+    let perfil_extracto = DatoPersonal('perfil_extracto', lenguaje);
+
     
     
     document.title = `CV ${nombre} ${apellido}`;
-    
+    var meta = document.createElement('meta');
+    meta.name = "description";
+    meta.content = `Curriculum Vitae - ${nombre} ${apellido} - ${titulo_destacado}, ${profesion_destacada}`;
+    document.getElementsByTagName('head')[0].appendChild(meta);
     
     let foto_perfil;
     foto_perfil = document.createElement('img');
@@ -111,17 +193,17 @@ function build(lenguaje){
     
     if (domicilio) {
         let p = document.createElement('p');
-        p.innerHTML = `Domicilio ${domicilio}, ${barrio}<br>CP: ${codigo_postal}`;
+        p.innerHTML = `${lenguaje == 'esp' ? 'Domicilio' : 'Address'} ${domicilio}, ${barrio}<br>CP: ${codigo_postal}`;
         document.getElementById('detalles').appendChild(p);
     }
     if (fecha_nacimiento) {
         let p = document.createElement('p');
-        p.innerHTML = `Fecha de Nacimiento: ${fecha_nacimiento}`;
+        p.innerHTML = `${lenguaje == 'esp' ? 'Fecha de Nacimiento:' : 'Born in:'} ${fecha_nacimiento}`;
         document.getElementById('detalles').appendChild(p);
     }
     
-    
-    if (EDUCACION.length) {
+    let educacion_lenguaje_actual = EDUCACION.filter(e => e.getIdioma() == lenguaje || e.getIdioma() == '');
+    if (educacion_lenguaje_actual.length) {
     
         let div = document.createElement('div');
         div.className = 'container_de_titular_con_circulos container_filas flex_al_centro primer_container_titular';
@@ -138,26 +220,27 @@ function build(lenguaje){
         div.appendChild(circulito);
     
         document.getElementById('educacion').appendChild(div);
+
     }
-    
-    for (let i = 0; i < EDUCACION.length && i <= CANTIDAD_MAX_ELEMENTOS; i++) {
+
+    for (let i = 0; i < educacion_lenguaje_actual.length && i <= CANTIDAD_MAX_ELEMENTOS; i++) {
         let p = document.createElement('p');
         let strong = document.createElement('strong');
-        strong.innerHTML = EDUCACION[i].getTitulo();
+        strong.innerHTML = educacion_lenguaje_actual[i].getTitulo();
         p.appendChild(strong);
-        p.innerHTML += `<br> en la ${EDUCACION[i].getInstitucion()}<br>`;
+        p.innerHTML += `<br>${educacion_lenguaje_actual[i].getInstitucion()}<br>`;
     
         let small = document.createElement('small');
-        small.innerHTML = `${EDUCACION[i].getFechaDesde()} - ${EDUCACION[i].getFechaHasta()}`;
+        small.innerHTML = `${educacion_lenguaje_actual[i].getFechaDesde()} - ${educacion_lenguaje_actual[i].getFechaHasta()}`;
         p.appendChild(small);
         document.getElementById('educacion').appendChild(p);
         p = document.createElement('p');
-        p.innerHTML = EDUCACION[i].getDescripcion();
+        p.innerHTML = educacion_lenguaje_actual[i].getDescripcion();
         document.getElementById('educacion').appendChild(p);
     }
     
-    
-    if (COMPETENCIAS.length) {
+    let competencias_lenguaje_actual = COMPETENCIAS.filter(e => e.getIdioma() == lenguaje || e.getIdioma() == '');
+    if (competencias_lenguaje_actual.length) {
         let div = document.createElement('div');
         div.className = 'container_de_titular_con_circulos container_filas flex_al_centro';
         let circulito = document.createElement('div');
@@ -176,15 +259,15 @@ function build(lenguaje){
     }
     
     
-    for (let i = 0; i < COMPETENCIAS.length; i++) {
+    for (let i = 0; i < competencias_lenguaje_actual.length; i++) {
         let p = document.createElement('p');
-        p.innerHTML = COMPETENCIAS[i].getTitulo();
+        p.innerHTML = competencias_lenguaje_actual[i].getTitulo();
         document.getElementById('competencias').appendChild(p);
     
         let div_container = document.createElement('div');
         div_container.className = `progress_bar_container`;
         let div_bar = document.createElement('div');
-        div_bar.className = `progress_bar progress_${COMPETENCIAS[i].getPorcentaje()}`;
+        div_bar.className = `progress_bar progress_${competencias_lenguaje_actual[i].getPorcentaje()}`;
         div_container.appendChild(div_bar);
     
         document.getElementById('competencias').appendChild(div_container);
@@ -251,7 +334,7 @@ function build(lenguaje){
         div.appendChild(circulito);
     
         let h3 = document.createElement('h3');
-        h3.innerHTML = "Idiomas";
+        h3.innerHTML = NombreDeSeccionCorrespondiente('idioma_usuario', lenguaje, template_cv);
         div.appendChild(h3);
     
         circulito = document.createElement('div');
@@ -286,7 +369,7 @@ function build(lenguaje){
         div.appendChild(circulito);
     
         let h3 = document.createElement('h3');
-        h3.innerHTML = "RRSS";
+        h3.innerHTML = NombreDeSeccionCorrespondiente('rrss', lenguaje, template_cv)
         div.appendChild(h3);
     
         circulito = document.createElement('div');
@@ -336,7 +419,7 @@ function build(lenguaje){
     
     if (perfil_extracto){
         let h3 = document.createElement('h3');
-        h3.innerHTML = 'Perfil';
+        h3.innerHTML = NombreDeSeccionCorrespondiente('perfil', lenguaje, template_cv);
         document.getElementById('perfil').getElementsByTagName('div')[0].appendChild(h3);
 
         let p = document.createElement('p');
@@ -347,12 +430,12 @@ function build(lenguaje){
     }
     
     
+    let experiencia_laboral = document.createElement('h3');
+    experiencia_laboral.innerHTML = NombreDeSeccionCorrespondiente('experiencia_laboral', lenguaje, template_cv);
+    document.getElementById('experiencia_laboral').getElementsByTagName('div')[0].appendChild(experiencia_laboral);
     
-    for (let i = 0; i < TRABAJOS.length && i <= CANTIDAD_MAX_ELEMENTOS; i++) {
-        let h3 = document.createElement('h3');
-        h3.innerHTML = 'Experiencia Laboral';
-        document.getElementById('experiencia_laboral').getElementsByTagName('div')[0].appendChild(h3);
-
+    let trabajos_lenguaje_actual = TRABAJOS.filter(e => e.getIdioma() == lenguaje || e.getIdioma() == '');
+    for (let i = 0; i < trabajos_lenguaje_actual.length && i <= CANTIDAD_MAX_ELEMENTOS; i++) {
         let bullet = document.createElement('div');
         bullet.className = 'bullet';
         bullet.innerHTML = ' ';
@@ -360,47 +443,49 @@ function build(lenguaje){
     
         let h4 = document.createElement('h4');
         let strong = document.createElement('strong');
-        strong.innerHTML = TRABAJOS[i].getPosicion();
+        strong.innerHTML = trabajos_lenguaje_actual[i].getPosicion();
         h4.appendChild(strong);
-        h4.innerHTML += ` en ${TRABAJOS[i].getEmpleador()}`;
+        h4.innerHTML += ` ${lenguaje == 'esp' ? 'en' : 'in'} ${trabajos_lenguaje_actual[i].getEmpleador()}`;
         document.getElementById('experiencia_laboral').getElementsByTagName('div')[1].appendChild(h4);
     
-        if (TRABAJOS[i].getArea()){
+        if (trabajos_lenguaje_actual[i].getArea()){
         let small = document.createElement('small');
-        small.innerHTML = TRABAJOS[i].getArea() + '<br>';
+        small.innerHTML = trabajos_lenguaje_actual[i].getArea() + '<br>';
         document.getElementById('experiencia_laboral').getElementsByTagName('div')[1].appendChild(small);
         }
     
         let small = document.createElement('small');
-        small.innerHTML = `${TRABAJOS[i].getFechaDesde()} - ${TRABAJOS[i].getFechaHasta()}`;
+        small.innerHTML = `${trabajos_lenguaje_actual[i].getFechaDesde()} - ${trabajos_lenguaje_actual[i].getFechaHasta()}`;
         document.getElementById('experiencia_laboral').getElementsByTagName('div')[1].appendChild(small);
     
         let p = document.createElement('p');
         p.className = 'links';
-        p.innerHTML = TRABAJOS[i].getDescripcion();
+        p.innerHTML = trabajos_lenguaje_actual[i].getDescripcion();
     
     
-        if (TRABAJOS[i].getWeb()){
+        if (trabajos_lenguaje_actual[i].getWeb()){
             p.appendChild(document.createElement('br'));
             p.appendChild(document.createElement('br'));
             let a = document.createElement('a');
-            a.setAttribute('href', `${TRABAJOS[i].getWeb()}`);
+            a.setAttribute('href', `${trabajos_lenguaje_actual[i].getWeb()}`);
             a.setAttribute('target', '_blank');
             
-            a.innerHTML = `Ver en: ${TRABAJOS[i].getWeb()}`;
+            a.innerHTML = `${lenguaje == 'esp' ? 'Ver:' : 'See:'} ${trabajos_lenguaje_actual[i].getWeb()}`;
             p.appendChild(a);
             }
     
             document.getElementById('experiencia_laboral').getElementsByTagName('div')[1].appendChild(p);
     
     }
-    
-    
-    for (let i = 0; i < ACTIVIDADES.length && i <= CANTIDAD_MAX_ELEMENTOS; i++) {
-        let h3 = document.createElement('h3');
-        h3.innerHTML = 'Otras Actividades';
-        document.getElementById('actividades').getElementsByTagName('div')[0].appendChild(h3);
 
+    let actividades_lenguaje_actual = ACTIVIDADES.filter(e => e.getIdioma() == lenguaje || e.getIdioma() == '');
+    if(actividades_lenguaje_actual.length){
+    let actividades = document.createElement('h3');
+    actividades.innerHTML = NombreDeSeccionCorrespondiente('actividades', lenguaje, template_cv);
+    document.getElementById('actividades').getElementsByTagName('div')[0].appendChild(actividades);
+    }    
+    
+    for (let i = 0; i < actividades_lenguaje_actual.length && i <= CANTIDAD_MAX_ELEMENTOS; i++) {
         let bullet = document.createElement('div');
         bullet.className = 'bullet';
         bullet.innerHTML = ' ';
@@ -408,18 +493,18 @@ function build(lenguaje){
     
         let h4 = document.createElement('h4');
         let strong = document.createElement('strong');
-        strong.innerHTML = ACTIVIDADES[i].getTitulo();
+        strong.innerHTML = actividades_lenguaje_actual[i].getTitulo();
         h4.appendChild(strong);
-        if (ACTIVIDADES[i].getSubtitulo()){
-            h4.innerHTML += ` ${ACTIVIDADES[i].getSubtitulo()}`;
+        if (actividades_lenguaje_actual[i].getSubtitulo()){
+            h4.innerHTML += ` ${actividades_lenguaje_actual[i].getSubtitulo()}`;
         }
         document.getElementById('actividades').getElementsByTagName('div')[1].appendChild(h4);
     
-        if (ACTIVIDADES[i].getFecha()){
+        if (actividades_lenguaje_actual[i].getFecha()){
             let small = document.createElement('small');
-            small.innerHTML = ACTIVIDADES[i].getFecha();
-            if (ACTIVIDADES[i].getFechaHasta()){
-                small.innerHTML += ` - ${ACTIVIDADES[i].getFechaHasta()}`    
+            small.innerHTML = actividades_lenguaje_actual[i].getFecha();
+            if (actividades_lenguaje_actual[i].getFechaHasta()){
+                small.innerHTML += ` - ${actividades_lenguaje_actual[i].getFechaHasta()}`    
             }
             document.getElementById('actividades').getElementsByTagName('div')[1].appendChild(small);
         }
@@ -427,17 +512,17 @@ function build(lenguaje){
     
         let p = document.createElement('p');
         p.className = 'links';
-        p.innerHTML = ACTIVIDADES[i].getDescripcion();
+        p.innerHTML = actividades_lenguaje_actual[i].getDescripcion();
         
     
-        if (ACTIVIDADES[i].getTituloUrl().length){
+        if (actividades_lenguaje_actual[i].getTituloUrl().length){
             p.appendChild(document.createElement('br'));
             p.appendChild(document.createElement('br'));
             let a = document.createElement('a');
-            a.setAttribute('href', `${ACTIVIDADES[i].getTituloUrl()[1]}`);
+            a.setAttribute('href', `${actividades_lenguaje_actual[i].getTituloUrl()[1]}`);
             a.setAttribute('target', '_blank');
             
-            a.innerHTML = `${ACTIVIDADES[i].getTituloUrl()[0]} ${ACTIVIDADES[i].getTituloUrl()[1]}`;
+            a.innerHTML = `${actividades_lenguaje_actual[i].getTituloUrl()[0]} ${actividades_lenguaje_actual[i].getTituloUrl()[1]}`;
             p.appendChild(a);
             }
             document.getElementById('actividades').getElementsByTagName('div')[1].appendChild(p);
@@ -446,7 +531,7 @@ function build(lenguaje){
     
     
     let footer = document.createElement('small');
-    footer.innerHTML = 'Última actualización: ';
+    footer.innerHTML = NombreDeSeccionCorrespondiente('ultima_actualizacion', lenguaje, template_cv) + ' ';
     let footer_fecha = document.createElement('strong');
     footer_fecha.innerHTML = ULTIMA_FECHA_DE_ACTUALIZACION;
     footer.appendChild(footer_fecha);
@@ -456,6 +541,7 @@ function build(lenguaje){
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    build(idioma_actual);
-    console.log('buildié la pag');
+    build(lenguaje);
  }, false);
+
+

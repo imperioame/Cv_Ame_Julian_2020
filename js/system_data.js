@@ -5,9 +5,9 @@ const CANTIDAD_MAX_ELEMENTOS = 4;
 const ULTIMA_FECHA_DE_ACTUALIZACION = "Abr. 2022";
 
 
-let idioma_del_sitio = new Idioma_del_sitio('esp', 'ico-espanol.png');
+let idioma_del_sitio = new Idioma_del_sitio('esp','Español', 'ico-espanol.png');
 IDIOMAS_DISPONIBLES_EN_SITIO.push(idioma_del_sitio);
-idioma_del_sitio = new Idioma_del_sitio('eng', 'ico-ingles.png');
+idioma_del_sitio = new Idioma_del_sitio('eng', 'English', 'ico-ingles.png');
 IDIOMAS_DISPONIBLES_EN_SITIO.push(idioma_del_sitio);
 
 
@@ -60,4 +60,4 @@ seccion_cv = new Seccion_cv('original', 'ultima_actualizacion', 'Last update:', 
 SECCIONES_CV.push(seccion_cv);
 
 
-var idioma_actual = IDIOMAS_DISPONIBLES_EN_SITIO[0].getIdioma();
+var lenguaje = IDIOMAS_DISPONIBLES_EN_SITIO[0].getIdioma();
