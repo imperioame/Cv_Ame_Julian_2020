@@ -10,6 +10,7 @@ const COMPETENCIAS = [];
 const IDIOMAS_DEL_CV = [];
 const IDIOMAS_DEL_USUARIO = [];
 const RRSS_USUARIO = [];
+const CVS_DE_USUARIO = [];
 
 class Dato {
     constructor(tipo_dato_personal, dato, idioma = '') {
@@ -571,4 +572,36 @@ class Seccion_cv {
         this.idioma = nuevoIdioma;
     }
 
+}
+
+class Cv {
+        //func constructora para cargar cv
+        constructor(idioma, nombre_archivo = '') {
+            this.idioma = idioma;
+            this.nombre_archivo = nombre_archivo;
+        }
+    
+        //Getters
+        getIdioma() {
+            return this.idioma;
+        }
+        getNombre_archivo() {
+            return this.nombre_archivo;
+        }
+    
+        //Setters
+        setIdioma(nuevoIdioma) {
+            nuevoIdioma = nuevoIdioma.trim();
+            if (nuevoIdioma === '') {
+                nuevoIdioma = '';
+            }
+            this.idioma = nuevoIdioma;
+        }
+        setNombre_archivo(nuevoNombre_archivo) {
+            nuevoNombre_archivo = nuevoNombre_archivo.trim();
+            if (nuevoNombre_archivo === '') {
+                throw 'no puede estar vacío';
+            }
+            this.nombre_archivo = nuevoNombre_archivo;
+        }
 }

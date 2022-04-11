@@ -36,6 +36,8 @@ function deleteAll(){
     document.getElementById('softwares').innerHTML = '';
     document.getElementById('idioma_usuario').innerHTML = '';
     document.getElementById('rrss').innerHTML = '';
+    document.getElementById('pdf').innerHTML = '';
+    document.getElementById('pdf_mobile').innerHTML = '';
     
     if(document.getElementById('perfil').getElementsByTagName('div')[0].getElementsByTagName('h3').length > 0) document.getElementById('perfil').getElementsByTagName('div')[0].getElementsByTagName('h3')[0].remove();
     if(document.getElementById('perfil').getElementsByTagName('p').length > 0) document.getElementById('perfil').getElementsByTagName('p')[0].remove();
@@ -529,6 +531,35 @@ function build(lenguaje_solicitado){
     }
     
     
+    let cvs_lenguaje_actual = CVS_DE_USUARIO.filter(e => e.getIdioma() == lenguaje || e.getIdioma() == '');
+    if(cvs_lenguaje_actual.length){
+        let a = document.createElement('a');
+        a.setAttribute('href', `PDF/${cvs_lenguaje_actual[0].getNombre_archivo()}`);
+        a.setAttribute('target', '_blank');
+        a.setAttribute('title', lenguaje == 'esp' ? 'Descargar ' : 'Download ' + 'PDF');
+
+        
+
+        let img = document.createElement('img');
+        img.setAttribute("src", 'img/icos/pdf.svg');
+        img.setAttribute('alt', (lenguaje == 'esp' ? 'Descargar ' : 'Download ') + 'PDF');
+        img.setAttribute('title', (lenguaje == 'esp' ? 'Descargar ' : 'Download ') + 'PDF');
+        a.appendChild(img);
+
+        let p = document.createElement('p');
+        p.innerHTML = (lenguaje == 'esp' ? 'Descargar' : 'Download') + '<br>PDF';
+        a.appendChild(p);
+
+        a_mobile = a.cloneNode(true);
+        a.id = 'descarga';
+        a_mobile.id = 'descarga_mobile';
+
+        document.getElementById('pdf').appendChild(a);
+        document.getElementById('pdf_mobile').appendChild(a_mobile);
+    }
+
+
+
     
     let footer = document.createElement('small');
     footer.innerHTML = NombreDeSeccionCorrespondiente('ultima_actualizacion', lenguaje, template_cv) + ' ';
