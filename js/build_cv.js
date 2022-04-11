@@ -534,20 +534,20 @@ function build(lenguaje_solicitado){
     let cvs_lenguaje_actual = CVS_DE_USUARIO.filter(e => e.getIdioma() == lenguaje || e.getIdioma() == '');
     if(cvs_lenguaje_actual.length){
         let a = document.createElement('a');
-        a.setAttribute('href', `PDF/${cvs_lenguaje_actual[0].getNombre_archivo()}`);
+        a.setAttribute('href', `pdf/${cvs_lenguaje_actual[0].getNombre_archivo()}`);
         a.setAttribute('target', '_blank');
-        a.setAttribute('title', lenguaje == 'esp' ? 'Descargar ' : 'Download ' + 'PDF');
+        a.setAttribute('title', lenguaje == 'esp' ? 'Descargar ' : 'Download ' + 'pdf');
 
         
 
         let img = document.createElement('img');
         img.setAttribute("src", 'img/icos/pdf.svg');
-        img.setAttribute('alt', (lenguaje == 'esp' ? 'Descargar ' : 'Download ') + 'PDF');
-        img.setAttribute('title', (lenguaje == 'esp' ? 'Descargar ' : 'Download ') + 'PDF');
+        img.setAttribute('alt', (lenguaje == 'esp' ? 'Descargar ' : 'Download ') + 'pdf');
+        img.setAttribute('title', (lenguaje == 'esp' ? 'Descargar ' : 'Download ') + 'pdf');
         a.appendChild(img);
 
         let p = document.createElement('p');
-        p.innerHTML = (lenguaje == 'esp' ? 'Descargar' : 'Download') + '<br>PDF';
+        p.innerHTML = (lenguaje == 'esp' ? 'Descargar' : 'Download') + '<br>pdf';
         a.appendChild(p);
 
         a_mobile = a.cloneNode(true);
