@@ -34,7 +34,7 @@ DATOS_PERSONALES.push(dato);
 
 let educacion = new Educacion('Comunicación digital e interactiva','Pontífica Universidad Católica Argentina','Licenciatura.','marzo 2021','diciembre 2021','esp');
 EDUCACION.push(educacion);
-educacion = new Educacion('Digital and Interactive Comunication','Pontífica Universidad Católica Argentina','Bachelor degree','march 2021','december 2021',
+educacion = new Educacion('Digital and Interactive Communication','Pontífica Universidad Católica Argentina','Bachelor degree','march 2021','december 2021',
 'eng');
 EDUCACION.push(educacion);
 educacion = new Educacion('Diseño multimedial','Escuela DaVinci','Tecnicatura Superior en Diseño Multimedial orientado a publicidad.','marzo 2017','abril 2020','esp');
@@ -115,11 +115,11 @@ trabajo = new Trabajo('Coordinador de productos digitales', 'Fundación Landrú'
 TRABAJOS.push(trabajo);
 trabajo = new Trabajo('Asesor en Comunicaciones digitales e Informática', 'Antrieb Sudamericana S.A.', '', 'Asesor generalista en cuestiones informáticas y de comunicación.<br>Diseño de estrategias de comunicación.<br>Desarrollo de campañas publicitarias de bajo costo/orgánicas.<br>Diseño de piezas publicitarias y de comunicación.<br>Gestión de desarrollo de página web institucional.<br>Optimización SEO.<br>Consultor en selección de proveedores informáticos (infraestructura y web).<br>Consultor y selección de presupuestos de equipamiento informático / servicios informáticos.', 'https://antriebsa.com/', 'febrero 2020', ...[,], 'esp');
 TRABAJOS.push(trabajo);
-trabajo = new Trabajo('Qa Lead', "Argentina's National Ministry of Productive Development", 'General Direction of Information and Comunication Tecnologies', 'Quality Assurance team Leader in National-Public systems.<br> Documentation, manuals and processes standards-and-definitions Consultor.<br>Sistems and documentation auditor and testing.<br>Survey of functionalities, detection of bugs and inflection points.<br>Test plans making and execution. Reporting and incident tracking.<br>Functional audit on systems of economic and social impact.<br>Team building and working methodologies Adviser.', '', 'june 2020', 'Present', 'eng');
+trabajo = new Trabajo('Qa Lead', "Argentina's National Ministry of Productive Development", 'General Direction of Information and Communication Tecnologies', 'Quality Assurance team Leader in National-Public systems.<br> Documentation, manuals and processes standards-and-definitions Consultor.<br>Sistems and documentation auditor and testing.<br>Survey of functionalities, detection of bugs and inflection points.<br>Test plans making and execution. Reporting and incident tracking.<br>Functional audit on systems of economic and social impact.<br>Team building and working methodologies Adviser.', '', 'june 2020', 'Present', 'eng');
 TRABAJOS.push(trabajo);
 trabajo = new Trabajo('Digital Products Manager', 'Landrú Foundation', '', 'Teams and Digital product developments Manager.<br>External teams and collaborators management.<br>Scope definition by multimedia or IT projects.<br>Technical feasibility analisys of proposals and projects.<br>Existant and proposed system funcionalities audit.<br>System design by surveying users and functionalities.<br>Prototyping and crude development as Proof of Concept for new proposals.','https://www.landru.org/', 'june 2021', 'Present', 'eng');
 TRABAJOS.push(trabajo);
-trabajo = new Trabajo('Digital Comunication and IT Adviser', 'Antrieb Sudamericana S.A.', '', 'Generalist Adviser in IT and comunication.<br>Comunication strategist.<br>Low cost/organic Publicity ad development.<br>Advertising and Communication piece design.<br>Institutional website management and development.<br>SEO.<br> IT Providers selection Adviser (web and infrastructure).<br>IT equipment/services budget management and Adviser.', 'https://antriebsa.com/', 'february 2020', 'Present', 'eng');
+trabajo = new Trabajo('Digital Communication and IT Adviser', 'Antrieb Sudamericana S.A.', '', 'Generalist Adviser in IT and Communication.<br>Communication strategist.<br>Low cost/organic Publicity ad development.<br>Advertising and Communication piece design.<br>Institutional website management and development.<br>SEO.<br> IT Providers selection Adviser (web and infrastructure).<br>IT equipment/services budget management and Adviser.', 'https://antriebsa.com/', 'february 2020', 'Present', 'eng');
 TRABAJOS.push(trabajo);
 
 
