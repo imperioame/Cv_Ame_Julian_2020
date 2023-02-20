@@ -16,7 +16,7 @@ dato = new Dato('codigo_postal','1425');
 DATOS_PERSONALES.push(dato);
 dato = new Dato('correo','hola@julianmmame.com.ar');
 DATOS_PERSONALES.push(dato);
-/*dato = new Dato('telefono','+549 11 5981 8605');
+/*dato = new Dato('telefono','+54 9 11 12345612');
 DATOS_PERSONALES.push(dato);*/
 dato = new Dato('fecha_nacimiento','Feb-1993');
 DATOS_PERSONALES.push(dato);
