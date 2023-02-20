@@ -586,7 +586,14 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
     let lenguaje;
     if (idioma_en_url){
-        lenguaje = IDIOMAS_DISPONIBLES_EN_SITIO.find(idioma => idioma.getIdioma() == idioma_en_url).getIdioma();
+        lenguaje = IDIOMAS_DISPONIBLES_EN_SITIO.find(idioma => idioma.getIdioma() == idioma_en_url);
+        
+        if (!lenguaje){
+            lenguaje = navigator.languages && navigator.languages[0] || navigator.language || navigator.userLanguage;
+        }else{
+            lenguaje = lenguaje.getIdioma();
+        }
+
     }else{
         lenguaje = IDIOMAS_DISPONIBLES_EN_SITIO[0].getIdioma();
     }
