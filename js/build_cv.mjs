@@ -22,15 +22,24 @@ let template_cv = 'original';
 
 
 function NombreDeSeccionCorrespondiente(seccion, lenguaje, template_cv) {
-    return SECCIONES_CV.filter(e => e.getPosicion_en_cv() == seccion && (e.getIdioma() == lenguaje || e.getIdioma() == '') && e.getTemplate_cv() == template_cv)[0].getTitulo();
+    console.log(SECCIONES_CV);
+    let result = SECCIONES_CV.find(seccion_actual => seccion_actual.getPosicion_en_cv() == seccion && (seccion_actual.getIdioma() == lenguaje || seccion_actual.getIdioma() == '') && seccion_actual.getTemplate_cv() == template_cv);
+    if(result){
+        result = result.getTitulo();
+    }else{
+        result = '';
+    }
+
+    return result;
 }
 
 function DatoPersonal(tipo_de_dato, lenguaje = '') {
-    let objeto_dato = DATOS_PERSONALES.filter(dato => dato.getTipoDatoPersonal() == tipo_de_dato && (result = dato.getIdioma() == lenguaje || dato.getIdioma() == ''));
+    console.log(DATOS_PERSONALES);
+    let objeto_dato = DATOS_PERSONALES.find(dato => dato.getTipoDatoPersonal() == tipo_de_dato && (result = dato.getIdioma() == lenguaje || dato.getIdioma() == ''));
 
     let dato;
     if (objeto_dato){
-        dato = objeto_dato[0].getDato() ?? '';
+        dato = objeto_dato.getDato() ?? '';
     }else{
         dato = '';
     }
@@ -599,6 +608,11 @@ document.addEventListener('DOMContentLoaded', function (e) {
         
         if (!lenguaje){
             lenguaje = navigator.languages && navigator.languages[0] || navigator.language || navigator.userLanguage;
+
+            if(lenguaje.length > 2){
+                lenguaje = lenguaje.slice(0,2);
+            }
+
         }else{
             lenguaje = lenguaje.getIdioma();
         }
