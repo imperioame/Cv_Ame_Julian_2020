@@ -22,7 +22,6 @@ let template_cv = 'original';
 
 
 function NombreDeSeccionCorrespondiente(seccion, lenguaje, template_cv) {
-    console.log(SECCIONES_CV);
     let result = SECCIONES_CV.find(seccion_actual => seccion_actual.getPosicion_en_cv() == seccion && (seccion_actual.getIdioma() == lenguaje || seccion_actual.getIdioma() == '') && seccion_actual.getTemplate_cv() == template_cv);
     if(result){
         result = result.getTitulo();
@@ -34,7 +33,6 @@ function NombreDeSeccionCorrespondiente(seccion, lenguaje, template_cv) {
 }
 
 function DatoPersonal(tipo_de_dato, lenguaje = '') {
-    console.log(DATOS_PERSONALES);
     let objeto_dato = DATOS_PERSONALES.find(dato => dato.getTipoDatoPersonal() == tipo_de_dato && (result = dato.getIdioma() == lenguaje || dato.getIdioma() == ''));
 
     let dato;
