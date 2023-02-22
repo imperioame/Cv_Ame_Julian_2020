@@ -1,3 +1,11 @@
+import {
+    IDIOMAS_DISPONIBLES_EN_SITIO,
+    SECCIONES_CV,
+    CANTIDAD_MAX_ELEMENTOS,
+    RRSS,
+    ULTIMA_FECHA_DE_ACTUALIZACION,
+} from './system_data.mjs';
+
 /*let circulito = document.createElement('div');
 circulito.className = 'circulito';
 */
@@ -71,7 +79,7 @@ function build(lenguaje_solicitado) {
         let a = document.createElement('a');
 
         let img = document.createElement('img');
-        img.setAttribute("src", `img/icos/idiomas/${IDIOMAS_DISPONIBLES_EN_SITIO[i].getIcono()}`);
+        img.setAttribute("src", IDIOMAS_DISPONIBLES_EN_SITIO[i].getIcono().href);
         img.setAttribute('alt', `Idioma ${IDIOMAS_DISPONIBLES_EN_SITIO[i].getIdioma_completo()}`);
         img.setAttribute('title', `Idioma ${IDIOMAS_DISPONIBLES_EN_SITIO[i].getIdioma_completo()}`);
         a.appendChild(img);
@@ -131,7 +139,7 @@ function build(lenguaje_solicitado) {
 
     let foto_perfil;
     foto_perfil = document.createElement('img');
-    foto_perfil.setAttribute("src", `img/imgs_perfil/${img_perfil}`);
+    foto_perfil.setAttribute("src", img_perfil.href);
     foto_perfil.setAttribute('alt', `Foto perfil de ${nombre} ${apellido}`);
     foto_perfil.setAttribute('title', `Foto perfil de ${nombre} ${apellido}`);
 
@@ -316,7 +324,7 @@ function build(lenguaje_solicitado) {
     for (let i = 0; i < SOFTWARES_USUARIO.length; i++) {
 
         let img = document.createElement('img');
-        img.setAttribute("src", `img/logos_software/${SOFTWARES_USUARIO[i].getLogo()}`);
+        img.setAttribute("src", SOFTWARES_USUARIO[i].getLogo().href);
         img.setAttribute('alt', `${SOFTWARES_USUARIO[i].getTitulo()}`);
         img.setAttribute('title', `${SOFTWARES_USUARIO[i].getTitulo()}`);
 
@@ -402,7 +410,7 @@ function build(lenguaje_solicitado) {
 
         let div = document.createElement('div');
         let img = document.createElement('img');
-        img.setAttribute('src', `img/logos_rrss/${RRSS.filter(e => e.getTitulo() === RRSS_USUARIO[i].getTitulo())[0].getIcono()}`);
+        img.setAttribute('src', RRSS.filter(e => e.getTitulo() === RRSS_USUARIO[i].getTitulo())[0].getIcono().href);
         img.setAttribute('alt', RRSS_USUARIO[i].getTitulo());
         img.setAttribute('title', RRSS_USUARIO[i].getTitulo());
 
@@ -550,7 +558,8 @@ function build(lenguaje_solicitado) {
 
 
         let img = document.createElement('img');
-        img.setAttribute("src", 'img/icos/pdf.svg');
+        let url_img_pdf = new URL('../img/icos/pdf.svg', import.meta.url);
+        img.setAttribute("src", url_img_pdf.href);
         img.setAttribute('alt', (lenguaje == 'es' ? 'Descargar ' : 'Download ') + 'pdf');
         img.setAttribute('title', (lenguaje == 'es' ? 'Descargar ' : 'Download ') + 'pdf');
         a.appendChild(img);

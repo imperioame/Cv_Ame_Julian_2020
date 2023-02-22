@@ -1,24 +1,24 @@
-const IDIOMAS_DISPONIBLES_EN_SITIO = [];
-const RRSS = [];
-const SECCIONES_CV = [];
-const CANTIDAD_MAX_ELEMENTOS = 4;
-const ULTIMA_FECHA_DE_ACTUALIZACION = "Abr. 2022";
+export const IDIOMAS_DISPONIBLES_EN_SITIO = [];
+export const RRSS = [];
+export const SECCIONES_CV = [];
+export const CANTIDAD_MAX_ELEMENTOS = 4;
+export const ULTIMA_FECHA_DE_ACTUALIZACION = "Feb. 2023";
 
 
 
-let idioma_del_sitio = new Idioma_del_sitio('es','Español', 'ico-espanol.png');
+let idioma_del_sitio = new Idioma_del_sitio('es','Español', new URL('../img/icos/idiomas/ico-espanol.png', import.meta.url));
 IDIOMAS_DISPONIBLES_EN_SITIO.push(idioma_del_sitio);
-idioma_del_sitio = new Idioma_del_sitio('en', 'English', 'ico-ingles.png');
+idioma_del_sitio = new Idioma_del_sitio('en', 'English', new URL('../img/icos/idiomas/ico-ingles.png', import.meta.url));
 IDIOMAS_DISPONIBLES_EN_SITIO.push(idioma_del_sitio);
 
 
-let rrss_sistema = new Rrss('Instagram', 'logos_Instagram.png');
+let rrss_sistema = new Rrss('Instagram', new URL('../img/logos_rrss/logos_Instagram.png', import.meta.url));
 RRSS.push(rrss_sistema);
-rrss_sistema = new Rrss('Flickr', 'logos_Flickr.png');
+rrss_sistema = new Rrss('Flickr', new URL('../img/logos_rrss/logos_Flickr.png', import.meta.url));
 RRSS.push(rrss_sistema);
-rrss_sistema = new Rrss('Linkedin', 'logos_Linkedin.png');
+rrss_sistema = new Rrss('Linkedin', new URL('../img/logos_rrss/logos_Linkedin.png', import.meta.url));
 RRSS.push(rrss_sistema);
-rrss_sistema = new Rrss('Behance', 'logos_Behance.png');
+rrss_sistema = new Rrss('Behance', new URL('../img/logos_rrss/logos_Behance.png', import.meta.url));
 RRSS.push(rrss_sistema);
 
 let seccion_cv = new Seccion_cv('original', 'detalles', 'Detalles', 'es');
