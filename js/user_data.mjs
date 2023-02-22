@@ -1,4 +1,5 @@
-let dato = new Dato('foto_perfil', new URL('../img/imgs_perfil/perfil_julian.jpg', import.meta.url));
+let dato = new Dato('foto_perfil', new URL('../img/imgs_perfil/perfil_julian.jpg',
+    import.meta.url));
 DATOS_PERSONALES.push(dato);
 dato = new Dato('nombres', 'Julián');
 DATOS_PERSONALES.push(dato);
@@ -69,25 +70,35 @@ competencia = new Competencia('Design and Photo retouching', 50, 'en');
 COMPETENCIAS.push(competencia);
 
 
-let software = new Software('Photoshop', new URL('../img/logos_software/logos_Photoshop.png', import.meta.url));
+let software = new Software('Photoshop', new URL('../img/logos_software/logos_Photoshop.png',
+    import.meta.url));
 SOFTWARES_USUARIO.push(software);
-software = new Software('Illustrator', new URL('../img/logos_software/logos_Illustrator.png', import.meta.url));
+software = new Software('Illustrator', new URL('../img/logos_software/logos_Illustrator.png',
+    import.meta.url));
 SOFTWARES_USUARIO.push(software);
-software = new Software('After Effects', new URL('../img/logos_software/logos_After_Effects.png', import.meta.url));
+software = new Software('After Effects', new URL('../img/logos_software/logos_After_Effects.png',
+    import.meta.url));
 SOFTWARES_USUARIO.push(software);
-software = new Software('Premiere Pro', new URL('../img/logos_software/logos_Premiere_Pro.png', import.meta.url));
+software = new Software('Premiere Pro', new URL('../img/logos_software/logos_Premiere_Pro.png',
+    import.meta.url));
 SOFTWARES_USUARIO.push(software);
-software = new Software('3Ds', new URL('../img/logos_software/logos_3ds_max.png', import.meta.url));
+software = new Software('3Ds', new URL('../img/logos_software/logos_3ds_max.png',
+    import.meta.url));
 SOFTWARES_USUARIO.push(software);
-software = new Software('Cinema 4D', new URL('../img/logos_software/logos_Cinema_4d.png', import.meta.url));
+software = new Software('Cinema 4D', new URL('../img/logos_software/logos_Cinema_4d.png',
+    import.meta.url));
 SOFTWARES_USUARIO.push(software);
-software = new Software('Blender', new URL('../img/logos_software/logos_Blender.png', import.meta.url));
+software = new Software('Blender', new URL('../img/logos_software/logos_Blender.png',
+    import.meta.url));
 SOFTWARES_USUARIO.push(software);
-software = new Software('Unity', new URL('../img/logos_software/logos_Unity.png', import.meta.url));
+software = new Software('Unity', new URL('../img/logos_software/logos_Unity.png',
+    import.meta.url));
 SOFTWARES_USUARIO.push(software);
-software = new Software('Real Flow', new URL('../img/logos_software/logos_Real_Flow.png', import.meta.url));
+software = new Software('Real Flow', new URL('../img/logos_software/logos_Real_Flow.png',
+    import.meta.url));
 SOFTWARES_USUARIO.push(software);
-software = new Software('Substance Painter', new URL('../img/logos_software/logos_Substance_Painter.png', import.meta.url));
+software = new Software('Substance Painter', new URL('../img/logos_software/logos_Substance_Painter.png',
+    import.meta.url));
 SOFTWARES_USUARIO.push(software);
 
 
@@ -140,7 +151,9 @@ ACTIVIDADES.push(actividad);
 actividad = new Actividad('Volunteer Paramedic', 'in "SEC Socorrismo"', "Concerts and Events medical corps volunteer.<br> I've managed rescue patrols and teams, as well as do primary care to victims in need.<br>Instructed with more than 20 training courses of medical attention, requiered for the activity.<br>I've been present in more than 70 events, including masive concerts in stadiums and private fests", '', 'january 2012', 'january 2016', 'en');
 ACTIVIDADES.push(actividad);
 
-let cv = new Cv('es', 'CV_Ame-2022_04-es.pdf');
+let cv = new Cv('es', new URL('../pdf/CV_Ame-2022_04-ESP.pdf',
+    import.meta.url));
 CVS_DE_USUARIO.push(cv);
-cv = new Cv('en', 'CV_Ame-2022_04-ING.pdf');
+cv = new Cv('en', new URL('../pdf/CV_Ame-2022_04-ING.pdf',
+    import.meta.url));
 CVS_DE_USUARIO.push(cv);

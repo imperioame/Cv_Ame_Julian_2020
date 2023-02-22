@@ -551,7 +551,7 @@ function build(lenguaje_solicitado) {
     let cvs_lenguaje_actual = CVS_DE_USUARIO.filter(e => e.getIdioma() == lenguaje || e.getIdioma() == '');
     if (cvs_lenguaje_actual.length) {
         let a = document.createElement('a');
-        a.setAttribute('href', `pdf/${cvs_lenguaje_actual[0].getNombre_archivo()}`);
+        a.setAttribute('href', cvs_lenguaje_actual[0].getNombre_archivo().href);
         a.setAttribute('target', '_blank');
         a.setAttribute('title', lenguaje == 'es' ? 'Descargar ' : 'Download ' + 'pdf');
 
