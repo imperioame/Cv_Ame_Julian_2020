@@ -26,11 +26,11 @@ function NombreDeSeccionCorrespondiente(seccion, lenguaje, template_cv) {
 }
 
 function DatoPersonal(tipo_de_dato, lenguaje = '') {
-    let objeto_dato = DATOS_PERSONALES.filter(dato => dato.getTipoDatoPersonal() == tipo_de_dato && (result = dato.getIdioma() == lenguaje || dato.getIdioma() == ''))[0];
+    let objeto_dato = DATOS_PERSONALES.filter(dato => dato.getTipoDatoPersonal() == tipo_de_dato && (result = dato.getIdioma() == lenguaje || dato.getIdioma() == ''));
 
     let dato;
     if (objeto_dato){
-        dato = objeto_dato.getDato() ?? '';
+        dato = objeto_dato[0].getDato() ?? '';
     }else{
         dato = '';
     }
